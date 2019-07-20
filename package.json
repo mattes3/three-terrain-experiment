@@ -1,0 +1,15 @@
+{
+  "name": "three-terrain-experiment",
+  "version": "1.0.0",
+  "description": "Generate a flat area inside a terrain, using THREE.Terrain",
+  "main": "index.js",
+  "author": "Matthias Bohlen",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.106.2",
+    "three.terrain.js": "^1.6.0"
+  },
+  "devDependencies": {
+    "serve": "^11.1.0"
+  }
+}
