@@ -18,13 +18,10 @@ if (window.innerWidth === 0) {
     window.innerHeight = parent.innerHeight;
 }
 
-var camera, scene, renderer, clock, terrainScene, decoScene, lastOptions, controls = {}, skyDome, skyLight, sand, water; // jscs:ignore requireLineBreakAfterVariableAssignment
+var camera, scene, renderer, clock, terrainScene, skyDome, skyLight, sand, water; // jscs:ignore requireLineBreakAfterVariableAssignment
 var INV_MAX_FPS = 1 / 100,
     frameDelta = 0,
-    paused = true,
-    mouseX = 0,
-    mouseY = 0,
-    useFPS = false;
+    paused = true;
 
 function animate() {
     draw();
@@ -41,7 +38,6 @@ function animate() {
 function startAnimating() {
     if (paused) {
         paused = false;
-        controls.freeze = false;
         clock.start();
         requestAnimationFrame(animate);
     }
@@ -49,7 +45,6 @@ function startAnimating() {
 
 function stopAnimating() {
     paused = true;
-    controls.freeze = true;
     clock.stop();
 }
 
@@ -169,13 +164,6 @@ function draw() {
 function update(delta) {
     if (terrainScene) terrainScene.rotation.z = Date.now() * 0.0001;
 }
-
-document.addEventListener('mousemove', function (event) {
-    if (!paused) {
-        mouseX = event.pageX;
-        mouseY = event.pageY;
-    }
-}, false);
 
 function customInfluences(g, options) {
     var clonedOptions = {};
